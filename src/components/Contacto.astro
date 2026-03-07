@@ -1,16 +1,17 @@
 ---
-import { Mail, MapPin } from "lucide-react";
+
 ---
 
-<section
-  class="container mx-auto max-w-5xl flex items-center justify-evenly gap-10 text-white py-20"
->
+<section class="container mx-auto max-w-5xl gap-10 text-white py-20 px-4">
   <section class="space-y-3">
-    <h1 class="text-3xl text-green-400 font-semibold text-center pb-4">
+    <h1
+      id="contact"
+      class="text-xl sm:text-3xl text-green-400 font-semibold text-center pb-4"
+    >
       CONTACTO
     </h1>
-    <div class="flex items-start gap-8">
-      <form class="flex flex-col gap-4 w-96">
+    <div class="w-full flex items-start gap-8">
+      <form class="flex-1 space-y-5 max-w-md mx-auto">
         <input
           type="text"
           placeholder="Nombre Completo"
@@ -33,16 +34,6 @@ import { Mail, MapPin } from "lucide-react";
           Enviar
         </button>
       </form>
-      <div class="flex flex-col justify-center gap-4">
-        <div class="flex items-center gap-3">
-          <Mail class="w-6 h-6 text-green-400" />
-          <p>guillecarck@gmail.com</p>
-        </div>
-        <div class="flex items-center gap-3">
-          <MapPin class="w-6 h-6 text-green-400" />
-          <p>Lima, Peru</p>
-        </div>
-      </div>
     </div>
   </section>
 </section>

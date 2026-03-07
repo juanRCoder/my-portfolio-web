@@ -1,12 +1,12 @@
 ---
-import AOSInitializer from "../components/AOSInitializer";
+import AOSInitializer from "../components/AOSInitializer.vue";
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/logo.webp" type="image/webp" />
+    <link rel="icon" href="/src/images/perfil.png" type="image/png" />
     <meta
       name="description"
       content="Portafolio web de Juan Ramírez (JuanRCoder) - Conoce más sobre mí, mis habilidades en desarrollo web y mis proyectos destacados."
@@ -49,15 +49,15 @@ import AOSInitializer from "../components/AOSInitializer";
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <title>Portafolio web | HomePage</title>
+    <title>Juan Ramirez - Portfolio</title>
   </head>
   <style>
     body {
       background: #1b1d1c;
     }
   </style>
-  <body class="font-barlow relative">
+  <body class="font-inter relative">
     <slot />
-    <AOSInitializer client:only="react" />
+    <AOSInitializer client:only="vue" />
   </body>
 </html>

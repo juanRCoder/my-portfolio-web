@@ -6,10 +6,11 @@ import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import Contacto from "../components/Contacto.astro";
 import Experiences from "../components/Experiences.astro";
+import Navbar from "../components/Navbar.vue";
 ---
 
 <HomeLayout>
-  <!-- <Header client:load /> -->
+  <Navbar client:load />
   <Hero />
   <Projects />
   <Skills />
@@ -17,9 +18,3 @@ import Experiences from "../components/Experiences.astro";
   <About />
   <Contacto />
 </HomeLayout>
-
-<style>
-  .background {
-    background: linear-gradient(to top, #16222a, #3a6073);
-  }
-</style>
