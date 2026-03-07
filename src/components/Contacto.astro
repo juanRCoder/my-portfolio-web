@@ -1,0 +1,48 @@
+---
+import { Mail, MapPin } from "lucide-react";
+---
+
+<section
+  class="container mx-auto max-w-5xl flex items-center justify-evenly gap-10 text-white py-20"
+>
+  <section class="space-y-3">
+    <h1 class="text-3xl text-green-400 font-semibold text-center pb-4">
+      CONTACTO
+    </h1>
+    <div class="flex items-start gap-8">
+      <form class="flex flex-col gap-4 w-96">
+        <input
+          type="text"
+          placeholder="Nombre Completo"
+          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+        />
+        <input
+          type="email"
+          placeholder="Correo Electrónico"
+          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+        />
+        <textarea
+          rows="5"
+          placeholder="Mensaje"
+          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white resize-none focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+        ></textarea>
+        <button
+          type="submit"
+          class="w-full bg-green-400 hover:bg-green-300 text-[#1b1d1c] font-medium py-2 rounded-md transition-colors"
+        >
+          Enviar
+        </button>
+      </form>
+      <div class="flex flex-col justify-center gap-4">
+        <div class="flex items-center gap-3">
+          <Mail class="w-6 h-6 text-green-400" />
+          <p>guillecarck@gmail.com</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <MapPin class="w-6 h-6 text-green-400" />
+          <p>Lima, Peru</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

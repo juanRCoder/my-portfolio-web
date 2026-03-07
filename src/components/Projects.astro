@@ -1,76 +1,66 @@
 ---
 import { Image } from "astro:assets";
-import { FaVuejs } from "react-icons/fa";
-import { SiAngular, SiTailwindcss, SiAstro } from "react-icons/si";
-import { FaReact } from "react-icons/fa6";
-import {project} from '../utils/dataProjects';
+import valnored_photo from "../images/valnored.png";
+import spotlight_photo from "../images/spotlight.png";
+
+const projects = [
+  {
+    title: "Valnored",
+    description:
+      "Plataforma web de comercio digital para condominios y negocios locales de bajo stock.",
+    techs: ["React", "Node/Express", "PostgreSQL"],
+    image: valnored_photo,
+    link: "https://valnored.netlify.app/",
+  },
+  {
+    title: "Spotlight Profiles",
+    description:
+      "Plataforma para crear portfolios web para desarrolladores juniors que prioriza simplicidad clara para generar portfolios web de manera ágil y estructurada.",
+    techs: ["Next", "Nestjs", "PostgreSQL"],
+    image: spotlight_photo,
+    link: "https://id-preview--0bbee29e-f0c8-494a-b9a5-749ddbc2afa2.lovable.app/",
+  },
+];
 ---
 
-<article class="max-w-5xl mx-auto px-5 text-slate-200 pb-16">
-  <h1
-    id="Projects"
-    class="pt-24 text-left sm:text-center text-4xl sm:text-5xl font-bold mb-10"
-    data-aos="fade-up"
-  >
-    Proyectos
-  </h1>
-  <section>
-    <div class="relative grid sm:grid-cols-2 gap-4">
+<article
+  class="container mx-auto max-w-5xl flex items-center justify-evenly gap-10 text-white py-20"
+>
+  <section class="space-y-3">
+    <h1 class="text-3xl text-green-400 font-semibold text-center pb-4">
+      PROYECTOS PRINCIPALES
+    </h1>
+    <div class="grid grid-cols-2 gap-4">
       {
-        project.map((project) => (
-          <div class="relative" data-aos="fade-up">
-            <Image
-              src={project.img}
-              class="object-cover rounded-md"
-              alt="photo_juan"
-              loading="lazy"
-            />
-            <div class="transition rounded-md absolute top-0 left-0 opacity-0 hover:opacity-100 bg-black/80 flex h-full w-full justify-center items-center">
-              <aside class="flex flex-col gap-4">
-                <h3 class="text-white text-2xl text-center font-bold">
-                  {project.name}
-                </h3>
-                <div class="flex items-center gap-3 justify-center">
-                  {project.technologys.map((tc, i) => (
-                    <Fragment key={i}>
-                      {tc === "Vue" && (
-                          <FaVuejs className="text-2xl text-teal-300" />
-                          <p>{tc}</p>
-                      )}
-                      {tc === "TailwindCSS" && (
-                          <SiTailwindcss className="text-center text-2xl text-blue-400" />
-                          <p>{tc}</p>
-                      )}
-                      {tc === "Angular" && (
-                          <SiAngular className="text-center text-2xl text-red-500" />
-                          <p>{tc}</p>
-                      )}
-                      {tc === 'React' && (
-                          <FaReact className="text-center text-2xl text-blue-500" />
-                          <p>{tc}</p>
-                      )}
-                      {tc === 'Astro' && (
-                          <SiAstro className="text-center text-2xl text-orange-500" />
-                          <p>{tc}</p>
-                      )}
-                    </Fragment>
-                  ))}
-                </div>
-                <p class="hidden md:block text-sm text-center px-2">{project.description}</p>
-                <div class="flex text-white gap-4 justify-center">
-                  <a href={project.github} target="_BLANK">
-                    <button class="bg-gray-500 px-4 py-1 rounded-md">
-                      Github
-                    </button>
-                  </a>
-                  <a href={project.website} target="_BLANK">
-                    <button class="bg-blue-500 px-4 py-1 rounded-md">
-                      WebSite
-                    </button>
-                  </a>
-                </div>
-              </aside>
+        projects.map((project) => (
+          <div class="flex flex-col h-full space-y-4 p-2 outline outline-1 outline-neutral-800 rounded-md">
+            <div class="h-52">
+              <Image
+                class="w-full h-full object-cover rounded-md"
+                src={project.image}
+                alt={`photo_${project.title}`}
+                loading="eager"
+              />
             </div>
+            <div class="flex-1 flex flex-col justify-start space-y-2">
+              <p class="text-xl font-semibold">{project.title}</p>
+              <p class="text-neutral-400">{project.description}</p>
+              <div class="flex gap-2 text-sm flex-wrap">
+                {project.techs.map((tech) => (
+                  <span class="bg-[#5F5E5E]/20 p-1 rounded-md leading-4 tracking-widest">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <a
+              href={project.link}
+              class="bg-green-400 hover:bg-green-300 rounded-md w-full py-1.5 text-[#1b1d1c] font-medium inline-block text-center mt-auto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Link Proyecto
+            </a>
           </div>
         ))
       }

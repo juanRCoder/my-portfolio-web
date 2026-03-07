@@ -1,10 +1,59 @@
 ---
-import Habilidades from "./Habilidades";
+const skills = [
+  {
+    environment: "Front-end",
+    stack: [
+      "HTML5/CSS3",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Next",
+      "TailwindCSS",
+      "Vue3",
+      "Storybook",
+      "Shadcn",
+    ],
+  },
+  {
+    environment: "Back-end & Base de Datos",
+    stack: [
+      "Node/Express",
+      "Nestjs",
+      "Prisma",
+      "Sequelize",
+      "MySQL",
+      "PostgreSQL",
+    ],
+  },
+  {
+    environment: "Otros",
+    stack: ["Git", "Docker", "Supabase", "Jira", "Trello", "Cloudinary"],
+  },
+];
 ---
 
-<section class="max-w-5xl mx-auto px-5 text-slate-200 ">
-  <h1 id="Skills" class="text-left sm:text-center text-4xl sm:text-5xl font-bold" data-aos="fade-up">
-    Habilidades
-  </h1>
-  <Habilidades />
-</section>
+<article
+  class="container mx-auto max-w-5xl flex items-center justify-evenly gap-10 text-white py-20"
+>
+  <section class="space-y-3">
+    <h1 class="text-3xl text-green-400 font-semibold text-center pb-4">
+      HABILIDADES
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {
+        skills.map((group) => (
+          <div class="flex flex-col h-full space-y-4 p-2 outline outline-1 outline-neutral-800 rounded-md">
+            <p class="text-neutral-400 text-center">{group.environment}</p>
+            <div class="text-sm flex flex-wrap gap-2 justify-center">
+              {group.stack.map((tech) => (
+                <span class="bg-[#5F5E5E]/20 p-2 rounded-md leading-4 tracking-widest">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</article>

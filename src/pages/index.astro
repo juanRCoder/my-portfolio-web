@@ -1,34 +1,21 @@
 ---
-import Header from "../components/Header";
 import HomeLayout from "../layouts/HomeLayout.astro";
 import About from "../components/About.astro";
 import Hero from "../components/Hero.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
-import Redes from "../components/Redes";
-import Contacto from "../components/Contacto";
+import Contacto from "../components/Contacto.astro";
+import Experiences from "../components/Experiences.astro";
 ---
 
 <HomeLayout>
-  <Header client:load />
-
-  <section class="relative background">
-    <Hero />
-    <Redes />
-  </section>
-  
-  <About />
-  <Skills />
+  <!-- <Header client:load /> -->
+  <Hero />
   <Projects />
-
-  <section class="relative my-16">
-    <Contacto />
-    <Redes />
-  </section>
-  
-  <p class="text-2xl sm:text-4xl py-20 text-teal-400 font-semibold text-center">
-    "Gracias por Scrollear"
-  </p>
+  <Skills />
+  <Experiences />
+  <About />
+  <Contacto />
 </HomeLayout>
 
 <style>
