@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import photo from "../images/perfil.png";
 
+const photo = "/images/perfil.png";
 const mainStack = ["React", "Vue 3", "Node/Express", "PostgreSQL"];
 const socialLinkeds = [
   {
@@ -71,10 +71,12 @@ const socialLinkeds = [
   </section>
   <div class="flex-1 flex justify-center items-center">
     <Image
-      class="w-56 h-56 rounded-full shadow shadow-green-400"
+      class="rounded-full shadow shadow-green-400"
       src={photo}
       alt="photo_juan"
       loading="eager"
+      width={224}
+      height={224}
     />
   </div>
 </article>

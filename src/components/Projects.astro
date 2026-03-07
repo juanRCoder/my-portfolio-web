@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import valnored_photo from "../images/valnored.png";
-import spotlight_photo from "../images/spotlight.png";
 
+const valnored = "/images/valnored.png";
+const spotlight = "/images/spotlight.png";
 const projects = [
   {
     title: "Valnored",
     description:
       "Plataforma web de comercio digital para condominios y negocios locales de bajo stock.",
     techs: ["React", "Node/Express", "PostgreSQL"],
-    image: valnored_photo,
+    image: valnored,
     link: "https://valnored.netlify.app/",
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     description:
       "Plataforma para crear portfolios web para desarrolladores juniors que prioriza simplicidad clara para generar portfolios web de manera ágil y estructurada.",
     techs: ["Next", "Nestjs", "PostgreSQL"],
-    image: spotlight_photo,
+    image: spotlight,
     link: "https://id-preview--0bbee29e-f0c8-494a-b9a5-749ddbc2afa2.lovable.app/",
   },
 ];
@@ -42,6 +42,8 @@ const projects = [
                 src={project.image}
                 alt={`photo_${project.title}`}
                 loading="eager"
+                width={208}
+                height={208}
               />
             </div>
             <div class="flex-1 flex flex-col justify-start space-y-2">
