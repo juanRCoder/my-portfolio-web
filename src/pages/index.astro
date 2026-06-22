@@ -1,5 +1,6 @@
 ---
-import HomeLayout from "../layouts/HomeLayout.astro";
+import "../styles/global.css";
+import MainLayout from "../layouts/MainLayout.astro";
 import About from "../components/About.astro";
 import Hero from "../components/Hero.astro";
 import Skills from "../components/Skills.astro";
@@ -9,12 +10,12 @@ import Experiences from "../components/Experiences.astro";
 import Navbar from "../components/Navbar.vue";
 ---
 
-<HomeLayout>
-  <Navbar client:load />
+<MainLayout>
+  <Navbar client:only="vue" />
   <Hero />
   <Projects />
   <Skills />
   <Experiences />
   <About />
   <Contacto />
-</HomeLayout>
+</MainLayout>

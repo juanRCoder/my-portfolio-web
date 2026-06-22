@@ -1,82 +1,65 @@
 ---
-import { Image } from "astro:assets";
-
-const photo = "/images/perfil.png";
-const mainStack = ["React", "Vue 3", "Node/Express", "PostgreSQL"];
-const socialLinkeds = [
+const coreStack = ["RECT", "NESTJS", "TYPESCRIPT", "POSTGRESQL"];
+const socialLinks = [
   {
-    link: "https://www.linkedin.com/in/juan-ramirez-490b84271/",
-    red: "Linkedln",
+    name: "GitHub",
+    href: "https://github.com/juanRCoder",
+    path: "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z",
   },
-  { link: "https://github.com/juanRCoder", red: "Github" },
   {
-    link: "https://mail.google.com/mail/?view=cm&to=guillecarck@gmail.com",
-    red: "Email",
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/juan-ramirez-developer/",
+    path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
+  },
+  {
+    name: "CV",
+    href: "https://drive.google.com/file/d/1v6OuiX6cuqlEWeGCuJMavauClKbEaIfw/view?usp=sharing",
+    path: "M6 2h8l6 6v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1v5h5",
   },
 ];
 ---
 
-<article
-  class="container mx-auto max-w-5xl flex flex-col-reverse sm:flex-row justify-between gap-10 text-white py-20 px-4"
->
-  <section class="space-y-3">
-    <div class="text-center sm:text-left">
-      <h1 class="text-4xl sm:text-5xl font-semibold text-green-400">
-        Juan Ramirez
-      </h1>
-      <h4 class="text-lg sm:text-2xl font-semibold">
-        Desarrollador Web Full-Stack
-      </h4>
-    </div>
-    <div class="flex flex-col gap-1 items-center sm:items-start">
-      <p class="text-neutral-400">Stack Principal:</p>
-      <div
-        class="text-sm flex flex-wrap justify-center sm:justify-normal gap-2 sm:gap-4"
-      >
-        {
-          mainStack.map((tech) => (
-            <span class="bg-[#5F5E5E]/20 p-2 rounded-md leading-4 tracking-widest">
-              {tech}
-            </span>
-          ))
-        }
-      </div>
-    </div>
-    <div class="flex flex-col gap-1 items-center sm:items-start">
-      <p class="text-neutral-400">Encuéntrame en:</p>
-      <div class="text-sm flex gap-4">
-        {
-          socialLinkeds.map((sl) => (
-            <a
-              class="underline rounded-md leading-4 tracking-widest"
-              href={sl.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {sl.red}
-            </a>
-          ))
-        }
-      </div>
-      <div class="mt-4">
-        <a
-          href="https://drive.google.com/file/d/10YKNlvNmMprIJoyGKdkF_vs6gHvGbxpD/view?usp=sharing"
-          target="_blank"
-          class="bg-green-400 hover:bg-green-300 rounded-md px-4 py-1.5 text-[#1b1d1c] font-semibold inline-block text-center mt-auto"
-        >
-          Ver CV
-        </a>
-      </div>
-    </div>
-  </section>
-  <div class="flex-1 flex justify-center items-center">
-    <Image
-      class="rounded-full shadow shadow-green-400"
-      src={photo}
-      alt="photo_juan"
-      loading="eager"
-      width={224}
-      height={224}
-    />
+<section class="min-h-[70vh] flex flex-col justify-center items-center text-center relative gap-6" id="hero">
+  <div class="bg-white/5 border-white/5 border flex items-center gap-4 p-3 rounded-xl">
+    <span class="block w-3 h-3 rounded-full bg-[#4CD7F6]"></span>
+    <span class="text-[#4CD7F6] text-xs tracking-widest">
+      DISPONIBLE PARA NUEVAS OPORTUNIDADES
+    </span>
   </div>
-</article>
+  <h1 class="text-[#DFE2EF] md:text-[72px] lg:text-[88px] md:leading-[1.1] tracking-tighter mb-0">
+    Juan Ramirez
+  </h1>
+  <div>
+    <h2 class="text-[#ADC6ff] font-light text-2xl [text-shadow:0_0_8px_rgb(173,198,255,0.4)] tracking-[0.4px] mb-2">
+      Desarrollador Full Stack
+    </h2>
+    <p class="text-[#C2C6D6] max-w-[708px] [text-shadow:0_0_8px_rgba(194,198,214,0.1)]">
+      con experiencia en el desarrollo de productos (end to end), desde crear interfaces fluidas y backend’s escalables listos para producción
+    </p>
+  </div>
+  <div class="flex flex-wrap justify-center items-center gap-4">
+    {
+      coreStack.map((tech) => (
+        <div class="bg-[#1C1F29]/50 border border-[#ADC6FF]/20 rounded-sm px-4 py-2">
+          <span class="text-sm text-[#C2C6D6] tracking-widest">
+            {tech}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+  <div class="flex justify-center items-center gap-6">
+    {
+      socialLinks.map((social) => (
+        <a class="flex items-center gap-2 text-[#C2C6D6] hover:underline transition" href={social.href} target="_blank">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d={social.path}></path>
+          </svg>
+          <span class="text-base">
+            {social.name}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</section>

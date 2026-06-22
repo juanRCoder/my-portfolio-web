@@ -1,11 +1,18 @@
 <template>
-  <nav class="bg-[#5F5E5E]/5 backdrop-blur-lg sticky top-0 text-neutral-300">
-    <ul class="flex justify-center items-center gap-5 py-4">
-      <a href="#skills" class="">Habilidades</a>
-      <a href="#experiences" class="">Experiencias</a>
-      <a href="#contact" class="">Contacto</a>
+  <nav
+    class="flex justify-between items-center bg-[#111621]/50 backdrop-blur-lg sticky top-0 text-[#C2C6D6] px-6"
+  >
+    <ul class="flex justify-center items-center gap-5 font-medium text-xs py-6">
+      <a href="#skills" class="tracking-[1.2px]">PROYECTOS</a>
+      <a href="#experiences" class="tracking-[1.2px]">TECNOLOGIAS</a>
+      <a href="#contact" class="tracking-[1.2px]">CONTACTO</a>
     </ul>
+    <div>
+      <Share2 class="text-[#C2C6D6] cursor-pointer" />
+    </div>
   </nav>
 </template>
-<script lang="ts"></script>
+<script setup lang="ts">
+import { Share2 } from "@lucide/vue";
+</script>
 <style lang="css"></style>
