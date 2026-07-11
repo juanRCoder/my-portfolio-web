@@ -1,62 +1,95 @@
 ---
-const skills = [
+const skillGroups = [
   {
-    environment: "Front-end",
-    stack: [
-      "HTML5/CSS3",
-      "JavaScript",
-      "React",
-      "TypeScript",
-      "Next",
-      "TailwindCSS",
-      "Vue3",
-      "Storybook",
-      "Shadcn",
+    title: "Front End",
+    color: "#ADC6FF",
+    icon: `<rect x="2" y="4" width="14" height="10" rx="1.5"></rect>
+           <path d="M9 14v3"></path>
+           <path d="M6 20h6"></path>
+           <rect x="17" y="9" width="5" height="8" rx="1"></rect>`,
+    skills: [
+      "html5/css3",
+      "typescript",
+      "react",
+      "next",
+      "vue 3",
+      "storybook",
+      "shadcn/ui",
+      "tailwindcss",
     ],
   },
   {
-    environment: "Back-end & Base de Datos",
-    stack: [
-      "Node/Express",
-      "Nestjs",
-      "Prisma",
-      "Sequelize",
-      "MySQL",
-      "PostgreSQL",
-    ],
+    title: "Back End",
+    color: "#D0BCFF",
+    icon: `<rect x="2" y="3" width="20" height="8" rx="2"></rect>
+           <rect x="2" y="13" width="20" height="8" rx="2"></rect>
+           <line x1="6" y1="7" x2="6.01" y2="7"></line>
+           <line x1="6" y1="17" x2="6.01" y2="17"></line>`,
+    skills: ["node", "express", "nestjs", "sequelize", "prisma"],
   },
   {
-    environment: "Otros",
-    stack: ["Git", "Docker", "Supabase", "Jira", "Trello", "Cloudinary"],
+    title: "Databases",
+    color: "#4CD7F6",
+    icon: `<ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+           <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"></path>
+           <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"></path>`,
+    skills: ["mysql", "postgresql", "supabase"],
+  },
+  {
+    title: "Devops e Infra",
+    color: "#FFB4AB",
+    icon: `<path d="M17.5 19a4.5 4.5 0 0 0 0-9 5.5 5.5 0 0 0-10.6-1.5A4.5 4.5 0 0 0 6.5 19h11z"></path>
+           <path d="m9 12.5 2 2 4-4"></path>`,
+    skills: ["docker", "git", "github actions", "render"],
   },
 ];
 ---
 
 <article
   id="skills"
-  class="container mx-auto max-w-5xl flex items-center justify-evenly gap-10 text-white py-20 px-4"
+  class="container mx-auto max-w-6xl flex items-center justify-evenly gap-10 text-white py-20 px-4"
 >
-  <section class="space-y-3">
-    <h1
-      class="text-xl sm:text-3xl text-green-400 font-semibold text-center pb-4"
-    >
-      HABILIDADES
-    </h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {
-        skills.map((group) => (
-          <div class="flex flex-col h-full space-y-4 p-2 outline outline-1 outline-neutral-800 rounded-md">
-            <p class="text-neutral-400 text-center">{group.environment}</p>
-            <div class="text-sm flex flex-wrap gap-2 justify-center">
-              {group.stack.map((tech) => (
-                <span class="bg-[#5F5E5E]/20 p-2 rounded-md leading-4 tracking-widest">
-                  {tech}
-                </span>
-              ))}
+  <section class="w-full flex flex-col gap-8">
+    <div class="flex items-center space-x-4">
+      <h3 class="text-sm text-nowrap text-[#ADC6FF] tracking-wide">
+        TECNOLOGIAS
+      </h3>
+      <div class="h-px w-full bg-[#ADC6FF4D]"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {skillGroups.map(({ title, color, icon, skills }) => (
+        <div class="bg-[#1E293B]/40 border border-white/10 rounded-sm p-4">
+          <div class="flex items-center gap-4 mb-5">
+            <div
+              class="w-11 h-11 flex items-center justify-center rounded-sm"
+              style={{ backgroundColor: `${color}1A` }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                style={{ color }}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                set:html={icon}
+              />
             </div>
+            <h3 class="text-slate-100 text-lg font-medium">{title}</h3>
           </div>
-        ))
-      }
+
+          <div class="flex flex-wrap gap-2">
+            {skills.map((tech) => (
+              <span class="px-2.5 py-1 rounded-sm border border-white/10 text-[10px] tracking-wide font-mono text-slate-300 uppercase">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 </article>
