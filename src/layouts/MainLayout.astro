@@ -1,5 +1,5 @@
 ---
-import AOSInitializer from "../components/AOSInitializer.vue";
+import SmoothScroll from '../components/SmoothScroll.astro'
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -48,13 +48,8 @@ import AOSInitializer from "../components/AOSInitializer.vue";
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Juan Ramirez - Portfolio</title>
   </head>
-  <style>
-    body {
-      background: #1b1d1c;
-    }
-  </style>
   <body class="relative hero-bg">
     <slot />
-    <AOSInitializer client:only="vue" />
+    <SmoothScroll />
   </body>
 </html>

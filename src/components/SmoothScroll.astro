@@ -1,0 +1,20 @@
+---
+// SmoothScroll.astro
+---
+<script>
+  import Lenis from 'lenis'
+
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+    wheelMultiplier: 0.8,
+    touchMultiplier: 1.5,
+  })
+
+  function raf(time: number) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+
+  requestAnimationFrame(raf)
+</script>

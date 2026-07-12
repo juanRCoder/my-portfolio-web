@@ -3,8 +3,8 @@
     class="flex justify-between items-center bg-[#111621]/50 backdrop-blur-lg sticky top-0 text-[#C2C6D6] px-6"
   >
     <ul class="flex justify-center items-center gap-5 font-medium text-xs py-6">
-      <a href="#skills" class="tracking-[1.2px]">PROYECTOS</a>
-      <a href="#experiences" class="tracking-[1.2px]">TECNOLOGIAS</a>
+      <a href="#skills" class="tracking-[1.2px]">TECNOLOGIAS</a>
+      <a href="#experiences" class="tracking-[1.2px]">EXPERIENCIA</a>
       <a href="#contact" class="tracking-[1.2px]">CONTACTO</a>
     </ul>
     <div>

@@ -2,38 +2,121 @@
 
 ---
 
-<section class="container mx-auto max-w-5xl gap-10 text-white py-20 px-4">
-  <section class="space-y-3">
-    <h1
-      id="contact"
-      class="text-xl sm:text-3xl text-green-400 font-semibold text-center pb-4"
-    >
-      CONTACTO
-    </h1>
-    <div class="w-full flex items-start gap-8">
-      <form class="flex-1 space-y-5 max-w-md mx-auto">
+<article
+  id="contact"
+  class="container mx-auto max-w-6xl gap-10 text-white py-20 px-4"
+>
+  <section class="w-full flex flex-col gap-8">
+    <div class="flex items-center space-x-4">
+      <h3 class="text-sm text-nowrap text-[#ADC6FF] tracking-wide">CONTACTO</h3>
+      <div class="h-px w-full bg-[#ADC6FF4D]"></div>
+    </div>
+   
+<section class="flex flex-col items-center justify-center px-4">
+  <h2 class="text-2xl md:text-3xl font-semibold text-white mb-10 text-center">
+    Formulario de contacto
+  </h2>
+ 
+  <div class="w-full max-w-md bg-[#1E293B]/40 border border-[#334155]/50 rounded-sm p-8">
+    <form id="contact-form" class="flex flex-col gap-6">
+      <!-- Nombre -->
+      <div class="flex flex-col gap-2">
+        <label for="from_name" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
+          Nombre
+        </label>
         <input
           type="text"
-          placeholder="Nombre Completo"
-          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+          id="from_name"
+          name="from_name"
+          placeholder="Tus nombres"
+          required
+          class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors"
         />
+      </div>
+ 
+      <!-- Correo -->
+      <div class="flex flex-col gap-2">
+        <label for="from_email" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
+          Correo
+        </label>
         <input
           type="email"
-          placeholder="Correo Electrónico"
-          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+          id="from_email"
+          name="from_email"
+          placeholder="correo@email.com"
+          required
+         class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors"
         />
+      </div>
+ 
+      <!-- Mensaje -->
+      <div class="flex flex-col gap-2">
+        <label for="message" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
+          Mensaje
+        </label>
         <textarea
-          rows="5"
-          placeholder="Mensaje"
-          class="w-full p-3 rounded-md border border-neutral-700 bg-[#1b1d1c] text-white resize-none focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400"
+          id="message"
+          name="message"
+          rows="3"
+          placeholder="Cómo puedo ayudarte?"
+          required
+          class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors resize-none"
         ></textarea>
-        <button
-          type="submit"
-          class="w-full bg-green-400 hover:bg-green-300 text-[#1b1d1c] font-medium py-2 rounded-md transition-colors"
-        >
-          Enviar
-        </button>
-      </form>
-    </div>
-  </section>
+      </div>
+ 
+      <!-- Botón -->
+      <button
+        type="submit"
+        id="submit-btn"
+        class="mt-4 w-full bg-white/3 hover:bg-white/10 border border-white/10 text-[#4CD7F6] font-medium py-3 rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Enviar mensaje
+      </button>
+
+      <p id="form-status" class="text-sm text-center hidden"></p>
+    </form>
+  </div>
 </section>
+  </section>
+</article>
+
+<script>
+  import emailjs from '@emailjs/browser'
+
+  const form = document.getElementById('contact-form') as HTMLFormElement
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement
+  const statusEl = document.getElementById('form-status') as HTMLParagraphElement
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    submitBtn.disabled = true
+    submitBtn.textContent = 'Enviando...'
+    statusEl.classList.add('hidden')
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+        form,
+        { publicKey: import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY }
+      )
+
+      statusEl.textContent = '¡Mensaje enviado con éxito!'
+      statusEl.className = 'text-sm text-center text-emerald-400'
+
+      setTimeout(() => {
+        statusEl.classList.add('hidden')
+      }, 3000)
+      form.reset()
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      statusEl.textContent = 'Hubo un error al enviar el mensaje. Intenta de nuevo.'
+      statusEl.className = 'text-sm text-center text-red-400'
+    } finally {
+      submitBtn.disabled = false
+      submitBtn.textContent = 'Enviar mensaje'
+      statusEl.classList.remove('hidden')
+    }
+  })
+</script>
