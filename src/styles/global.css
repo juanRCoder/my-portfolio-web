@@ -2,24 +2,246 @@
 
 @theme {
   --font-sans: "Hanken Grotesk", sans-serif;
+  --color-bg-primary: #0c1220;
+  --color-bg-darker: #070b14;
+  --color-bg-card: #131b2e;
+  --color-bg-badge: #1a2440;
+  --color-accent-cyan: #4CD7F6;
+  --color-accent-purple: #A78BFA;
+  --color-accent-blue: #ADC6FF;
+  --color-accent-lavender: #D0BCFF;
+  --color-accent-emerald: #34D399;
+  --color-accent-violet: #C084FC;
+  --color-accent-rose: #FFB4AB;
+  --color-text-primary: #E8ECF4;
+  --color-text-secondary: #B0B8CC;
+  --color-text-muted: #7A859E;
 }
 
+/* ── Hero Background ─────────────────────────────────────── */
 .hero-bg {
-  background-color: #0f131c;
+  background-color: #060a13;
   background-image:
     radial-gradient(
-      at 40% 20%,
-      hsla(228, 100%, 74%, 0.08) 0px,
+      ellipse 80% 60% at 20% 10%,
+      hsla(267, 70%, 30%, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 5%,
+      hsla(195, 80%, 30%, 0.08) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 50% 50%,
+      hsla(267, 60%, 25%, 0.05) 0%,
       transparent 50%
     ),
-    radial-gradient(at 80% 0%, hsla(267, 100%, 74%, 0.05) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsla(228, 100%, 74%, 0.05) 0px, transparent 50%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-  background-size:
-    auto,
-    auto,
-    auto,
-    40px 40px,
-    40px 40px;
+    radial-gradient(
+      circle at 50% 100%,
+      hsla(220, 60%, 15%, 0.15) 0%,
+      transparent 40%
+    );
+}
+
+/* ── Gradient Text ───────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-accent-purple) 45%, var(--color-accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Entrance Animations ─────────────────────────────────── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: hero-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.3s; }
+
+/* ── Status Dot Pulse ────────────────────────────────────── */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(77, 215, 246, 0.5); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(77, 215, 246, 0); }
+}
+
+.status-dot {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+/* ── Section Header ──────────────────────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-header h3 {
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-blue);
+}
+
+.section-header .section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent-blue) 0%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* ── Card Glow ───────────────────────────────────────────── */
+.card-base {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-base:hover {
+  border-color: rgba(167, 139, 250, 0.2);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.06), 0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Badge Hover Glow ────────────────────────────────────── */
+.badge-glow {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.badge-glow:hover {
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 12px rgba(77, 215, 246, 0.2), inset 0 0 12px rgba(77, 215, 246, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ── Social Link Hover ───────────────────────────────────── */
+.social-link {
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.social-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-cyan);
+  transition: width 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--color-accent-cyan);
+}
+
+.social-link:hover::after {
+  width: 100%;
+}
+
+/* ── Timeline ────────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent-purple) 0%, var(--color-accent-cyan) 50%, transparent 100%);
+  opacity: 0.25;
+  border-radius: 1px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-accent-purple);
+  z-index: 1;
+}
+
+/* ── Contact Input ───────────────────────────────────────── */
+.contact-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.5rem;
+  color: var(--color-text-primary);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contact-input:focus {
+  border-color: var(--color-accent-cyan);
+}
+
+/* ── Particles ───────────────────────────────────────────── */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) translateX(40px);
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate {
+    opacity: 1;
+    animation: none;
+  }
+
+  .status-dot {
+    animation: none;
+  }
+
+  .particle {
+    animation: none;
+    opacity: 0.05;
+  }
 }

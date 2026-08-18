@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <article
@@ -7,76 +6,125 @@
   class="container mx-auto max-w-6xl gap-10 text-white py-20 px-4"
 >
   <section class="w-full flex flex-col gap-8">
-    <div class="flex items-center space-x-4">
-      <h3 class="text-sm text-nowrap text-[#ADC6FF] tracking-wide">CONTACTO</h3>
-      <div class="h-px w-full bg-[#ADC6FF4D]"></div>
+    <div class="section-header">
+      <h3>CONTACTO</h3>
+      <div class="section-line"></div>
     </div>
-   
-<section class="flex flex-col items-center justify-center px-4">
-  <h2 class="text-2xl md:text-3xl font-semibold text-white mb-10 text-center">
-    Formulario de contacto
-  </h2>
- 
-  <div class="w-full max-w-md bg-[#1E293B]/40 border border-[#334155]/50 rounded-sm p-8">
-    <form id="contact-form" class="flex flex-col gap-6">
-      <!-- Nombre -->
-      <div class="flex flex-col gap-2">
-        <label for="from_name" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
-          Nombre
-        </label>
-        <input
-          type="text"
-          id="from_name"
-          name="from_name"
-          placeholder="Tus nombres"
-          required
-          class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors"
-        />
-      </div>
- 
-      <!-- Correo -->
-      <div class="flex flex-col gap-2">
-        <label for="from_email" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
-          Correo
-        </label>
-        <input
-          type="email"
-          id="from_email"
-          name="from_email"
-          placeholder="correo@email.com"
-          required
-         class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors"
-        />
-      </div>
- 
-      <!-- Mensaje -->
-      <div class="flex flex-col gap-2">
-        <label for="message" class="text-sm font-medium tracking-wider text-[#ADC6FF] uppercase">
-          Mensaje
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows="3"
-          placeholder="Cómo puedo ayudarte?"
-          required
-          class="bg-transparent border-b border-white/10 pb-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-[#ADC6FF] transition-colors resize-none"
-        ></textarea>
-      </div>
- 
-      <!-- Botón -->
-      <button
-        type="submit"
-        id="submit-btn"
-        class="mt-4 w-full bg-white/3 hover:bg-white/10 border border-white/10 text-[#4CD7F6] font-medium py-3 rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        Enviar mensaje
-      </button>
 
-      <p id="form-status" class="text-sm text-center hidden"></p>
-    </form>
-  </div>
-</section>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      {/* ── Left: Info ────────────────────────────────── */}
+      <div class="flex flex-col gap-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-[var(--color-text-primary)] leading-snug">
+          Hablemos
+        </h2>
+        <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed max-w-sm">
+          Si tienes un proyecto, idea o simplemente quieres conversar sobre tecnología, no dudes en contactarme.
+        </p>
+
+        <div class="flex flex-col gap-4 mt-4">
+          <a
+            href="mailto:juanramirez@gmail.com"
+            class="flex items-center gap-3 text-[var(--color-text-muted)] hover:text-[var(--color-accent-cyan)] transition-colors text-sm group"
+          >
+            <span class="w-9 h-9 flex items-center justify-center rounded bg-[var(--color-accent-cyan)]/10 text-[var(--color-accent-cyan)] group-hover:bg-[var(--color-accent-cyan)]/15 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            juanramirez@gmail.com
+          </a>
+
+          <a
+            href="https://github.com/juanRCoder"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 text-[var(--color-text-muted)] hover:text-[var(--color-accent-cyan)] transition-colors text-sm group"
+          >
+            <span class="w-9 h-9 flex items-center justify-center rounded bg-[var(--color-accent-purple)]/10 text-[var(--color-accent-purple)] group-hover:bg-[var(--color-accent-purple)]/15 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+              </svg>
+            </span>
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/juan-ramirez-developer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 text-[var(--color-text-muted)] hover:text-[var(--color-accent-cyan)] transition-colors text-sm group"
+          >
+            <span class="w-9 h-9 flex items-center justify-center rounded bg-[var(--color-accent-blue)]/10 text-[var(--color-accent-blue)] group-hover:bg-[var(--color-accent-blue)]/15 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </span>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      {/* ── Right: Form ───────────────────────────────── */}
+      <div class="card-base p-6 md:p-8">
+        <form id="contact-form" class="flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <label for="from_name" class="text-[11px] font-medium tracking-[0.15em] text-[var(--color-accent-blue)] uppercase">
+              Nombre
+            </label>
+            <input
+              type="text"
+              id="from_name"
+              name="from_name"
+              placeholder="Tus nombres"
+              required
+              class="contact-input"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="from_email" class="text-[11px] font-medium tracking-[0.15em] text-[var(--color-accent-blue)] uppercase">
+              Correo
+            </label>
+            <input
+              type="email"
+              id="from_email"
+              name="from_email"
+              placeholder="correo@email.com"
+              required
+              class="contact-input"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-[11px] font-medium tracking-[0.15em] text-[var(--color-accent-blue)] uppercase">
+              Mensaje
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Cómo puedo ayudarte?"
+              required
+              class="contact-input resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="mt-2 w-full bg-[var(--color-accent-cyan)]/10 hover:bg-[var(--color-accent-cyan)]/20 border border-[var(--color-accent-cyan)]/20 hover:border-[var(--color-accent-cyan)]/40 text-[var(--color-accent-cyan)] font-medium py-3 rounded transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm tracking-wide"
+          >
+            Enviar mensaje
+          </button>
+
+          <p id="form-status" class="text-sm text-center hidden"></p>
+        </form>
+      </div>
+    </div>
   </section>
 </article>
 

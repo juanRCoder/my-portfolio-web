@@ -1,17 +1,74 @@
 ---
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/juanRCoder",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/juan-ramirez-developer/",
+  },
+  {
+    name: "CV",
+    href: "https://drive.google.com/file/d/1PMPL28QaFxUq-dLnPG1o6HzmOpVslrHR/view?usp=sharing",
+  },
+];
 ---
 
-<footer class="bg-[#0A0E17]/50 flex justify-between py-8 px-6 border border-[#FFFFFF]/5">
-	<p class="text-[#DFE2EF] text-xs font-medium tracking-wide">© 2026 FullStack developer, build with <span class="text-[#4CD7F6]">Astro & TailwindCSS</span></p>
-	<div class="flex items-center gap-6">
-		<a href="https://github.com/juanRCoder" target="_blank" class="uppercase text-sm font-medium tracking-wide text-[#4CD7F6]">
-			GitHub
-		</a>
-		<a href="https://www.linkedin.com/in/juan-ramirez-developer/" target="_blank" class="uppercase text-sm font-medium tracking-wide text-[#4CD7F6]">
-			LinkedIn
-		</a>
-		<a href="https://drive.google.com/file/d/1PMPL28QaFxUq-dLnPG1o6HzmOpVslrHR/view?usp=sharing" target="_blank" class="uppercase text-sm font-medium tracking-wide text-[#4CD7F6]">
-			CV
-		</a>
-	</div>
+<footer class="relative border-t border-white/4">
+  {/* ── Gradient Line ────────────────────────────────── */}
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-linear-to-r from-transparent via-accent-cyan/30 to-transparent" />
+
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      {/* ── Left: Brand & Copy ────────────────────────── */}
+      <div class="flex flex-col items-center md:items-start gap-3">
+        <span class="text-base font-bold tracking-tight text-white/80">
+          J<span class="text-accent-cyan">.</span>R
+        </span>
+        <p class="text-[11px] text-white/25 tracking-wider">
+          © {currentYear} Juan Ramirez · Construido con
+          <span class="text-accent-cyan/60"> Astro</span> &
+          <span class="text-accent-cyan/60"> Tailwind</span>
+        </p>
+      </div>
+
+      {/* ── Center: Status ────────────────────────────── */}
+      <div class="flex items-center gap-2.5">
+        <span class="block w-1.5 h-1.5 rounded-full bg-emerald-400/70 animate-pulse" />
+        <span class="text-[10px] text-white/30 tracking-[0.15em] uppercase">
+          Abierto a oportunidades
+        </span>
+      </div>
+
+      {/* ── Right: Social Links ───────────────────────── */}
+      <div class="flex items-center gap-5">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[11px] font-medium tracking-[0.12em] uppercase text-white/30 hover:text-accent-cyan transition-colors duration-300"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    {/* ── Bottom Decorative Line ──────────────────────── */}
+    <div class="mt-10 pt-6 border-t border-white/3">
+      <div class="flex justify-center">
+        <div class="flex items-center gap-3">
+          <span class="block w-8 h-px bg-white/6" />
+          <span class="text-[9px] text-white/15 tracking-[0.3em] uppercase font-mono">
+            code · build · deploy
+          </span>
+          <span class="block w-8 h-px bg-white/6" />
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

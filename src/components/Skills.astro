@@ -25,7 +25,7 @@ const skillGroups = [
            <rect x="2" y="13" width="20" height="8" rx="2"></rect>
            <line x1="6" y1="7" x2="6.01" y2="7"></line>
            <line x1="6" y1="17" x2="6.01" y2="17"></line>`,
-    skills: ["node", "express", "nestjs", "sequelize", "prisma"],
+    skills: ["node", "express", "nestjs", "sequelize", "prisma", "java", "spring boot", "maven"],
   },
   {
     title: "Databases",
@@ -36,11 +36,29 @@ const skillGroups = [
     skills: ["mysql", "postgresql", "supabase"],
   },
   {
-    title: "Devops e Infra",
+    title: "DevOps e Infra",
     color: "#FFB4AB",
     icon: `<path d="M17.5 19a4.5 4.5 0 0 0 0-9 5.5 5.5 0 0 0-10.6-1.5A4.5 4.5 0 0 0 6.5 19h11z"></path>
            <path d="m9 12.5 2 2 4-4"></path>`,
-    skills: ["docker", "git", "github actions", "render"],
+    skills: ["docker", "git", "github actions", "render", "netlify"],
+  },
+  {
+    title: "Inteligencia Artificial",
+    color: "#C084FC",
+    icon: `<path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93"></path>
+           <path d="M8.25 9.93A4 4 0 0 1 8 6a4 4 0 0 1 8 0"></path>
+           <path d="M12 18v4"></path>
+           <path d="M8 22h8"></path>
+           <circle cx="12" cy="6" r="2"></circle>`,
+    skills: ["opencode", "claude web", "agents/skills", "prompt engineering"],
+  },
+  {
+    title: "Testing",
+    color: "#34D399",
+    icon: `<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+           <polyline points="14 2 14 8 20 8"></polyline>
+           <path d="m9 15 2 2 4-4"></path>`,
+    skills: ["jest", "vitest"],
   },
 ];
 ---
@@ -50,20 +68,18 @@ const skillGroups = [
   class="container mx-auto max-w-6xl flex items-center justify-evenly gap-10 text-white py-20 px-4"
 >
   <section class="w-full flex flex-col gap-8">
-    <div class="flex items-center space-x-4">
-      <h3 class="text-sm text-nowrap text-[#ADC6FF] tracking-wide">
-        TECNOLOGIAS
-      </h3>
-      <div class="h-px w-full bg-[#ADC6FF4D]"></div>
+    <div class="section-header">
+      <h3>TECNOLOGIAS</h3>
+      <div class="section-line"></div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {skillGroups.map(({ title, color, icon, skills }) => (
-        <div class="bg-[#1E293B]/40 border border-white/10 rounded-sm p-4 transition-transform duration-300 hover:scale-102 cursor-pointer">
-          <div class="flex items-center gap-4 mb-5">
+        <div class="card-base p-5 cursor-default bg-white/2">
+          <div class="flex items-center gap-3.5 mb-5">
             <div
-              class="w-11 h-11 flex items-center justify-center rounded-sm"
-              style={{ backgroundColor: `${color}1A` }}
+              class="w-10 h-10 flex items-center justify-center rounded"
+              style={{ backgroundColor: `${color}15` }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,12 +94,18 @@ const skillGroups = [
                 set:html={icon}
               />
             </div>
-            <h3 class="text-slate-100 text-lg font-medium">{title}</h3>
+            <h3 class="text-text-primary text-sm font-medium">{title}</h3>
           </div>
 
           <div class="flex flex-wrap gap-2">
             {skills.map((tech) => (
-              <span class="px-2.5 py-1 rounded-sm border border-white/10 text-[10px] tracking-wide font-mono text-slate-300 uppercase">
+              <span
+                class="px-2.5 py-1 rounded border text-[10px] tracking-wide font-mono uppercase"
+                style={{
+                  borderColor: `${color}20`,
+                  color: `${color}CC`,
+                }}
+              >
                 {tech}
               </span>
             ))}
